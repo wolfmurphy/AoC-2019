@@ -1,15 +1,18 @@
 #!/usr/local/bin/python3
 import sys
 count = 0
+def isIncreasing(lis):
+    for i in range(1,6):
+        if lis[i] > lis[i+1]:
+            return False
+    return True
+def hasRepeated(L):
+    for i in range(1,6):
+        if (L[i] == L[i+1]) and (L[i-1] != L[i]) and (L[i+1] != L[i+2]):
+            return True
+    return False
 for i in range(183564,657474):
-    lis = [char for char in str(i)]
-    if (lis[0] > lis[1]) or  (lis[1] > lis[2]) or (lis[2] > lis[3]) or (lis[3] > lis[4]) or (lis[4] > lis[5]):
-        continue
-    elif ((lis[0] == lis[1]) and (lis[1] != lis[2])) or \
-            ((lis[1] == lis[2]) and (lis[0] != lis[1]) and (lis[2] != lis[3])) or \
-            ((lis[2] == lis[3]) and (lis[1] != lis[2]) and (lis[3] != lis[4])) or \
-            ((lis[3] == lis[4]) and (lis[2] != lis[3]) and (lis[4] != lis[5])) or \
-            ((lis[4] == lis[5]) and (lis[3] != lis[4])): 
+    lis = [char for char in ('-'+str(i)+'-')]
+    if isIncreasing(lis) and hasRepeated(lis):
         count = count + 1
 print count
-
