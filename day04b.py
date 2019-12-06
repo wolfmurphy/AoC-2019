@@ -12,7 +12,7 @@ def hasRepeated(L,start,end):
             return True
     return False
 for i in range(183564,657474):
-    lis = [char for char in ('-'+str(i)+'-')]
+    lis =  list('-'+str(i)+'-')
     start, end = 1, len(lis) - 2
     if isIncreasing(lis,start,end) and hasRepeated(lis,start,end):
         count = count + 1
