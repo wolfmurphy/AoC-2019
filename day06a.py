@@ -3,11 +3,9 @@ with open("day06.txt",'r') as f:
     children, dists = {}, {}
     for line in f.readlines():
         parent, child = line.rstrip().split(")")
-        if children.get(parent) == None:
-            children[parent] = []
-        if children.get(child) == None:
-            children[child] = []
+        children[parent] = children.get(parent, []) 
         children[parent].append(child)
+        children[child] = children.get(child, []) 
     todo, dists['COM'] = ['COM'], 0
     while len(todo) > 0:
         obj = todo.pop(0)
